@@ -1,2 +1,122 @@
-  }    .close {     position: absolute;     top: 20px;     right: 30px;     font-size: 30px;     cursor: pointer;   } </style> </head>  <body>  <h1>🎬 My Favorite Videos</h1>  <div class="grid" id="videoGrid"></div>  <div class="player" id="player">   <span class="close" onclick="closePlayer()">✖</span>   <iframe id="videoFrame"></iframe> </div>  <script> const videos = [   "c745E7T_Wvg",   "npH8zAMwnNo",   "Y71IxUCFjzc",   "5ItVlCoWiRw",   "7L7bfcwomNg",   "ZpZ8rW0mONk",   "SdEaZSCTTyI",   "2YdPIB7wVFk",   "XDsYPXRCXAs",   "bNulp6cDqUU" ];  const grid = document.getElementById("videoGrid");  videos.forEach(id => {   const card = document.createElement("div");   card.className = "card";   card.innerHTML = `     <img src="https://img.youtube.com/vi/${id}/hqdefault.jpg">   `;   card.onclick = () => openPlayer(id);   grid.appendChild(card); });  function openPlayer(id) {   document.getElementById("player").style.display = "flex";   document.getElementById("videoFrame").src =     `https://www.youtube.com/embed/${id}?autoplay=1`; }  function closePlayer() {   document.getElementById("player").style.display = "none";   document.getElementById("videoFrame").src = ""; } </script>  </body> </html>
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Favorite Videos</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: white;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .card {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  }
+
+  .card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  /* Popup player */
+  .player {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .player iframe {
+    width: 80%;
+    height: 80%;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>My Favorite Videos</h1>
+
+<div class="grid" id="videoGrid"></div>
+
+<div class="player" id="player">
+  <span class="close" onclick="closePlayer()">✖</span>
+  <iframe id="videoFrame"></iframe>
+</div>
+
+<script>
+const videos = [
+  "c745E7T_Wvg",
+  "npH8zAMwnNo",
+  "Y71IxUCFjzc",
+  "5ItVlCoWiRw",
+  "7L7bfcwomNg",
+  "ZpZ8rW0mONk",
+  "SdEaZSCTTyI",
+  "2YdPIB7wVFk",
+  "XDsYPXRCXAs",
+  "bNulp6cDqUU"
+];
+
+const grid = document.getElementById("videoGrid");
+
+videos.forEach(id => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <img src="https://img.youtube.com/vi/${id}/hqdefault.jpg">
+  `;
+  card.onclick = () => openPlayer(id);
+  grid.appendChild(card);
+});
+
+function openPlayer(id) {
+  document.getElementById("player").style.display = "flex";
+  document.getElementById("videoFrame").src =
+    `https://www.youtube.com/embed/${id}?autoplay=1`;
+}
+
+function closePlayer() {
+  document.getElementById("player").style.display = "none";
+  document.getElementById("videoFrame").src = "";
+}
+</script>
+
+</body>
+</html>
