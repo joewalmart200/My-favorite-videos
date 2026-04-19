@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My favorite videos</title>
+<title>Joes Favorite Videos</title>
 
 <link rel="preconnect" href="https://www.youtube.com">
 <link rel="preconnect" href="https://img.youtube.com">
@@ -30,7 +30,6 @@
 
   .card {
     cursor: pointer;
-    position: relative;
     transition: transform 0.2s;
   }
 
@@ -41,15 +40,6 @@
   .card img {
     width: 100%;
     border-radius: 12px;
-  }
-
-  .play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 40px;
-    opacity: 0.8;
   }
 
   .player {
@@ -83,7 +73,7 @@
 
 <body>
 
-<h1> Joe's favorite videos</h1>
+<h1>Joes Favorite Videos</h1>
 
 <div class="grid" id="grid"></div>
 
@@ -105,7 +95,6 @@ const videos = [
   "XDsYPXRCXAs",
   "bNulp6cDqUU",
 
-  // NEW ONES YOU SENT
   "qkFYqY3vr84",
   "dmLSJrA0n9w",
   "mOJlg8g8_yw",
@@ -114,7 +103,13 @@ const videos = [
   "_xrkcDPu6Bk",
   "-Ta80mqCuJs",
   "BlevvVl46wk",
-  "KNFHIYSxBBs"
+  "KNFHIYSxBBs",
+
+  // NEW ONES
+  "XH4lePNqiHc",
+  "oxZ_wbg3eAo",
+  "cX7tdils0hU",
+  "GEX5jIs2BHs"
 ];
 
 const grid = document.getElementById("grid");
@@ -125,7 +120,6 @@ videos.forEach(id => {
 
   div.innerHTML = `
     <img loading="lazy" src="https://img.youtube.com/vi/${id}/mqdefault.jpg">
-    <div class="play"></div>
   `;
 
   div.onclick = () => {
